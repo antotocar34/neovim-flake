@@ -7,6 +7,7 @@
 with lib;
 with builtins; let
   cfg = config.vim.statusline.lualine;
+  supported_themes = import ./supported_lualine_themes.nix ;
 in {
   options.vim.statusline.lualine = {
     enable = mkOption {
@@ -42,9 +43,7 @@ in {
           "modus_vivendi"
           "molokai"
           "nightfly"
-          "nord"
           "oceanicnext"
-          "onedark"
           "onelight"
           "palenight"
           "papercolor_dark"
@@ -56,9 +55,9 @@ in {
           "wombat"
         ]
         ++ (
-          if config.vim.theme.name == "tokyonight"
-          then ["tokyonight"]
-          else ["onedark"]
+          if elem config.vim.theme.name supported_themes
+          then [config.vim.theme.name]
+          else []
         )
       );
       description = "Theme for lualine";

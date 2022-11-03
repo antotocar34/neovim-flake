@@ -3,7 +3,12 @@
 {
         theme = {
           enable = true;
-          name = "nord";
+          name = "onedark";
+          style="darker";
+        };
+        statusline.lualine = {
+          enable = true;
+          theme = "onedark";
         };
         viAlias = false;
         vimAlias = true;
@@ -37,10 +42,6 @@
             enable = true;
             lineTimeout = 0;
           };
-        };
-        statusline.lualine = {
-          enable = true;
-          theme = "nord";
         };
         autopairs.enable = true;
         autocomplete = {
