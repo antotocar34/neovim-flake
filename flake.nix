@@ -169,6 +169,11 @@
       flake = false;
     };
 
+    nord = {
+      url = "github:shaunsingh/nord.nvim";
+      flake = false;
+    };
+
     # Rust crates
     crates-nvim = {
       url = "github:Saecki/crates.nvim";

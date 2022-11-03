@@ -18,4 +18,13 @@
            '' ;
     styles=["day" "night" "storm"];
           };
+
+  nord = {
+    setup = {style ? null}: ''
+          require('nord').set()
+          vim.cmd[[colorscheme nord]]
+          '';
+    styles = [];
+          };
+
 }

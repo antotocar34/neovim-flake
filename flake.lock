@@ -374,6 +374,22 @@
         "type": "github"
       }
     },
+    "nord": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1667321846,
+        "narHash": "sha256-6exVquQT4v7j0ZyY11Hwzb61KPy4g7Tnzd0SGOJtK1w=",
+        "owner": "shaunsingh",
+        "repo": "nord.nvim",
+        "rev": "a6bb6a8b71fdd5329d0ae0fd637e700b12e4a5cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shaunsingh",
+        "repo": "nord.nvim",
+        "type": "github"
+      }
+    },
     "null-ls": {
       "flake": false,
       "locked": {
@@ -705,6 +721,7 @@
         "lspsaga": "lspsaga",
         "lualine": "lualine",
         "nixpkgs": "nixpkgs",
+        "nord": "nord",
         "null-ls": "null-ls",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-bufferline-lua": "nvim-bufferline-lua",
