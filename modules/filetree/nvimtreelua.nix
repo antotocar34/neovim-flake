@@ -15,6 +15,12 @@ in {
       description = "Enable nvim-tree-lua";
     };
 
+    keyToggle = mkOption {
+      type = types.str;
+      default = "<C-n>";
+      description = "Key to open nvimtree";
+    };
+
     treeSide = mkOption {
       default = "left";
       description = "Side the tree will appear on left or right";
@@ -136,7 +142,7 @@ in {
     ];
 
     vim.nnoremap = {
-      "<C-n>" = ":NvimTreeToggle<CR>";
+      "${cfg.keyToggle}" = ":NvimTreeToggle<CR>";
       "<leader>tr" = ":NvimTreeRefresh<CR>";
       "<leader>tg" = ":NvimTreeFindFile<CR>";
       "<leader>tf" = ":NvimTreeFocus<CR>";
