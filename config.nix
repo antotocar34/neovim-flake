@@ -3,12 +3,12 @@
 {
         theme = {
           enable = true;
-          name = "onedark";
-          style="darker";
+          name = "nord";
+          style="";
         };
         statusline.lualine = {
           enable = true;
-          theme = "onedark";
+          theme = "nord";
         };
         viAlias = false;
         vimAlias = true;
@@ -33,7 +33,7 @@
           nvimWebDevicons.enable = true;
           lspkind.enable = true;
           indentBlankline = {
-            enable = true;
+            enable = false;
             fillChar = "";
             eolChar = "";
             showCurrContext = true;
@@ -52,6 +52,7 @@
           enable = true ;
           closeOnFileOpen = true ;
           openOnSetup = false;
+          keyToggle = "-";
         };
         tabline.nvimBufferline.enable = false;
         treesitter = {
@@ -65,6 +66,14 @@
         telescope = {
           enable = true;
           subKey = "<leader>j";
+          keyFindFiles = "f";
+          keyGitFindFiles = "g";
+          keyGitLiveGrep = "s";
+          keyGitGrepString = "w";
+          keyBuffers = "b";
+          keyLiveGrep = "l";
+          keyHelpTags = "h";
+          keyPickers = "t";
         };
         markdown = {
           enable = true;
@@ -74,4 +83,24 @@
           enable = true;
           gitsigns.enable = true;
         };
+
+        ## Keybindings
+        nnoremap."<C-q>"=":q<CR>";
+        nnoremap."Y"=''"+y'';
+        vnoremap."Y"=''"+y'';
+        vnoremap."<C-s>"="<Esc>:update <CR>";
+        nnoremap."<C-s>"="<Esc>:update <CR>";
+
+        # " This is a spell check from gilles castel blog
+        # https://castel.dev/post/lecture-notes-1/
+        inoremap."<C-l>" = "<c-g>u<Esc>[s1z=`]a<c-g>u";
+        # Toggle spell checking
+        nnoremap."<leader>o" = "<cmd>set invspell<CR>";
+
+        # Buffer remaps
+        nnoremap."<leader>l"=":bn<CR>";
+        nnoremap."<leader>h"=":bp<CR>";
+        nnoremap."<leader>q"=":bd<CR>";
+
+        imap."<C-e>"="<C-o>zz";
   }
