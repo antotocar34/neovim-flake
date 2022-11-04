@@ -10,6 +10,11 @@ with builtins; let
 in {
   options.vim.telescope = {
     enable = mkEnableOption "enable telescope";
+
+    subKey = mkOption {
+      type = types.str;
+      description = "Keybinding to initialize Telescope commands";
+    };
   };
 
   config = mkIf (cfg.enable) {
@@ -19,36 +24,36 @@ in {
 
     vim.nnoremap =
       {
-        "<leader>ff" = "<cmd> Telescope find_files<CR>";
-        "<leader>fg" = "<cmd> Telescope live_grep<CR>";
-        "<leader>fb" = "<cmd> Telescope buffers<CR>";
-        "<leader>fh" = "<cmd> Telescope help_tags<CR>";
-        "<leader>ft" = "<cmd> Telescope<CR>";
+        "${cfg.subKey}f" = "<cmd> Telescope find_files<CR>";
+        "${cfg.subKey}g" = "<cmd> Telescope live_grep<CR>";
+        "${cfg.subKey}b" = "<cmd> Telescope buffers<CR>";
+        "${cfg.subKey}h" = "<cmd> Telescope help_tags<CR>";
+        "${cfg.subKey}t" = "<cmd> Telescope<CR>";
 
-        "<leader>fvcw" = "<cmd> Telescope git_commits<CR>";
-        "<leader>fvcb" = "<cmd> Telescope git_bcommits<CR>";
-        "<leader>fvb" = "<cmd> Telescope git_branches<CR>";
-        "<leader>fvs" = "<cmd> Telescope git_status<CR>";
-        "<leader>fvx" = "<cmd> Telescope git_stash<CR>";
+        "${cfg.subKey}vcw" = "<cmd> Telescope git_commits<CR>";
+        "${cfg.subKey}vcb" = "<cmd> Telescope git_bcommits<CR>";
+        "${cfg.subKey}vb" = "<cmd> Telescope git_branches<CR>";
+        "${cfg.subKey}vs" = "<cmd> Telescope git_status<CR>";
+        "${cfg.subKey}vx" = "<cmd> Telescope git_stash<CR>";
       }
       // (
         if config.vim.lsp.enable
         then {
-          "<leader>flsb" = "<cmd> Telescope lsp_document_symbols<CR>";
-          "<leader>flsw" = "<cmd> Telescope lsp_workspace_symbols<CR>";
+          "${cfg.subKey}lsb" = "<cmd> Telescope lsp_document_symbols<CR>";
+          "${cfg.subKey}lsw" = "<cmd> Telescope lsp_workspace_symbols<CR>";
 
-          "<leader>flr" = "<cmd> Telescope lsp_references<CR>";
-          "<leader>fli" = "<cmd> Telescope lsp_implementations<CR>";
-          "<leader>flD" = "<cmd> Telescope lsp_definitions<CR>";
-          "<leader>flt" = "<cmd> Telescope lsp_type_definitions<CR>";
-          "<leader>fld" = "<cmd> Telescope diagnostics<CR>";
+          "${cfg.subKey}lr" = "<cmd> Telescope lsp_references<CR>";
+          "${cfg.subKey}li" = "<cmd> Telescope lsp_implementations<CR>";
+          "${cfg.subKey}lD" = "<cmd> Telescope lsp_definitions<CR>";
+          "${cfg.subKey}lt" = "<cmd> Telescope lsp_type_definitions<CR>";
+          "${cfg.subKey}ld" = "<cmd> Telescope diagnostics<CR>";
         }
         else {}
       )
       // (
         if config.vim.treesitter.enable
         then {
-          "<leader>fs" = "<cmd> Telescope treesitter<CR>";
+          "${cfg.subKey}s" = "<cmd> Telescope treesitter<CR>";
         }
         else {}
       );

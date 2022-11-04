@@ -64,6 +64,7 @@
         };
         telescope = {
           enable = true;
+          subKey = "<leader>j";
         };
         markdown = {
           enable = true;
