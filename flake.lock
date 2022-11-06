@@ -749,6 +749,7 @@
         "tokyonight": "tokyonight",
         "tree-sitter-hare": "tree-sitter-hare",
         "trouble": "trouble",
+        "vim-floaterm": "vim-floaterm",
         "vim-vsnip": "vim-vsnip",
         "which-key": "which-key"
       }
@@ -950,6 +951,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vim-floaterm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1667435857,
+        "narHash": "sha256-nI0p1bwGuWqf6S7xr7aX8kXDY5xGP1Ip8jiaOfFCC6Y=",
+        "owner": "voldikss",
+        "repo": "vim-floaterm",
+        "rev": "280b34a0760801168a67f952542b6c49292aa5f3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "voldikss",
+        "repo": "vim-floaterm",
         "type": "github"
       }
     },

@@ -67,7 +67,7 @@
     # Themes
     tokyonight = { url = "github:folke/tokyonight.nvim"; flake = false; };
     onedark = { url = "github:navarasu/onedark.nvim"; flake = false; };
-    nord = { url = "github:shaunsingh/nord.nvim"; flake = false; };
+    nord = { url = "github:antotocar34/nord.nvim"; flake = false; };
 
     # Rust crates
     crates-nvim = { url = "github:Saecki/crates.nvim"; flake = false; };
@@ -80,6 +80,10 @@
 
     # Key binding help
     which-key = { url = "github:folke/which-key.nvim"; flake = false; };
+
+    # Terminal toggling
+    vim-floaterm = { url = "github:voldikss/vim-floaterm"; flake = false; };
+    
 
     # Markdown
     glow-nvim = { url = "github:ellisonleao/glow.nvim"; flake = false; };
@@ -144,6 +148,7 @@
       "hare-vim"
       "nord"
       "tokyonight"
+      "vim-floaterm"
     ];
 
     pluginOverlay = lib.buildPluginOverlay;

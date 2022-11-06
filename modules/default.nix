@@ -21,6 +21,7 @@
     ./keys
     ./markdown
     ./telescope
+    ./vim-floaterm
     ./git
   ];
 }

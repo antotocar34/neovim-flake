@@ -83,6 +83,9 @@
           enable = true;
           gitsigns.enable = true;
         };
+        vim-floaterm = {
+          enable = true;
+        };
 
         ## Keybindings
         nnoremap."<C-q>"=":q<CR>";

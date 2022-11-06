@@ -108,6 +108,14 @@ in {
       type = types.bool;
       description = "New splits will open to the right";
     };
+    noShowMode = mkOption {
+      type = types.bool;
+      description = "Whether to show current mode on command line at bottom left";
+    };
+    title = mkOption {
+      type = types.bool;
+      description = "Names the window with a more descriptive title";
+    };
   };
 
   config = (
@@ -137,6 +145,8 @@ in {
       vim.mapTimeout = mkDefault 500;
       vim.splitBelow = mkDefault true;
       vim.splitRight = mkDefault true;
+      vim.noShowMode = mkDefault true;
+      vim.title = mkDefault true;
 
       vim.startPlugins = with pkgs.neovimPlugins; [plenary-nvim];
 
@@ -235,6 +245,12 @@ in {
         ${writeIf cfg.colourTerm ''
           set termguicolors
           set t_Co=256
+        ''}
+        ${writeIf cfg.noShowMode ''
+          set noshowmode
+        ''}
+        ${writeIf cfg.title ''
+          set title
         ''}
       '';
     }
