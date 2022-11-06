@@ -27,6 +27,7 @@
           nix = true;
           python = true;
           clang.enable = false;
+          rust.enable = false;
           sql = true;
           ts = false;
           go = false;
@@ -78,6 +79,7 @@
           keyLiveGrep = "l";
           keyHelpTags = "h";
           keyPickers = "t";
+          keyKeyMaps = "k";
         };
         markdown = {
           enable = true;

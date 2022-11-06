@@ -40,6 +40,9 @@ in {
     keyGitGrepString = mkOption {
       type = types.str;
     };
+    keyKeyMaps = mkOption {
+      type = types.str;
+    };
   };
 
   config = mkIf (cfg.enable) {
@@ -61,6 +64,7 @@ in {
         "${cfg.subKey}${cfg.keyBuffers}" = "<cmd> Telescope buffers<CR>";
         "${cfg.subKey}${cfg.keyHelpTags}" = "<cmd> Telescope help_tags<CR>";
         "${cfg.subKey}${cfg.keyPickers}" = "<cmd> Telescope<CR>";
+        "${cfg.subKey}${cfg.keyKeyMaps}" = "<cmd> Telescope keymaps<CR>";
 
 
         "${cfg.subKey}vcw" = "<cmd> Telescope git_commits<CR>";
