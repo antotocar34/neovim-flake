@@ -10,7 +10,7 @@ with lib; {
       enable = mkDefault false;
       name = mkDefault "onedark";
       style = mkDefault "darker";
-      extraConfig = mkDefault '''';
+      extraLuaConfig = mkDefault '''';
     };
   };
 }

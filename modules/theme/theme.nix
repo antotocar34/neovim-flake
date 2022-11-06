@@ -25,7 +25,7 @@ in {
       type = with types; enum supported_themes.${cfg.name}.styles;
       description = ''Specific style for theme if it supports it'';
     };
-    extraConfig = mkOption {
+    extraLuaConfig = mkOption {
       type = with types; lines;
       description = ''Additional lua configuration to add before setup'';
     };
@@ -36,7 +36,7 @@ in {
     (
       {
         vim.startPlugins = [pkgs.neovimPlugins.${cfg.name}];
-        vim.luaConfigRC = cfg.extraConfig + supported_themes.${cfg.name}.setup {style=cfg.style;};
+        vim.luaConfigRC = cfg.extraLuaConfig + supported_themes.${cfg.name}.setup {style=cfg.style;};
       }
     );
 }

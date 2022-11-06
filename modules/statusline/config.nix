@@ -10,7 +10,7 @@ with lib; {
       enable = mkDefault false;
 
       icons = mkDefault true;
-      theme = mkDefault "auto";
+      # theme = mkDefault "auto";
       sectionSeparator = {
         left = mkDefault "";
         right = mkDefault "";

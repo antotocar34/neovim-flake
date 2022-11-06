@@ -7,6 +7,7 @@
 with lib;
 with builtins; let
   cfg = config.vim.statusline.lualine;
+  current_theme = config.vim.theme.name;
   supported_themes = import ./supported_lualine_themes.nix ;
 in {
   options.vim.statusline.lualine = {
@@ -20,48 +21,48 @@ in {
       description = "Enable icons for lualine";
     };
 
-    theme = mkOption {
-      type = types.enum (
-        [
-          "auto"
-          "16color"
-          "gruvbox"
-          "ayu_dark"
-          "ayu_light"
-          "ayu_mirage"
-          "codedark"
-          "dracula"
-          "everforest"
-          "gruvbox"
-          "gruvbox_light"
-          "gruvbox_material"
-          "horizon"
-          "iceberg_dark"
-          "iceberg_light"
-          "jellybeans"
-          "material"
-          "modus_vivendi"
-          "molokai"
-          "nightfly"
-          "oceanicnext"
-          "onelight"
-          "palenight"
-          "papercolor_dark"
-          "papercolor_light"
-          "powerline"
-          "seoul256"
-          "solarized_dark"
-          "tomorrow"
-          "wombat"
-        ]
-        ++ (
-          if elem config.vim.theme.name supported_themes
-          then [config.vim.theme.name]
-          else []
-        )
-      );
-      description = "Theme for lualine";
-    };
+    # theme = mkOption {
+    #   type = types.enum (
+    #     [
+    #       "auto"
+    #       "16color"
+    #       "gruvbox"
+    #       "ayu_dark"
+    #       "ayu_light"
+    #       "ayu_mirage"
+    #       "codedark"
+    #       "dracula"
+    #       "everforest"
+    #       "gruvbox"
+    #       "gruvbox_light"
+    #       "gruvbox_material"
+    #       "horizon"
+    #       "iceberg_dark"
+    #       "iceberg_light"
+    #       "jellybeans"
+    #       "material"
+    #       "modus_vivendi"
+    #       "molokai"
+    #       "nightfly"
+    #       "oceanicnext"
+    #       "onelight"
+    #       "palenight"
+    #       "papercolor_dark"
+    #       "papercolor_light"
+    #       "powerline"
+    #       "seoul256"
+    #       "solarized_dark"
+    #       "tomorrow"
+    #       "wombat"
+    #     ]
+    #     ++ (
+    #       if elem config.vim.theme.name supported_themes
+    #       then [config.vim.theme.name]
+    #       else []
+    #     )
+    #   );
+    #   description = "Theme for lualine";
+    # };
 
     sectionSeparator = {
       left = mkOption {
@@ -171,7 +172,8 @@ in {
           then "true"
           else "false"
         },
-            theme = "${cfg.theme}",
+            -- theme = "$ {cfg.theme}",
+            theme = "${current_theme}",
             component_separators = {"${cfg.componentSeparator.left}","${cfg.componentSeparator.right}"},
             section_separators = {"${cfg.sectionSeparator.left}","${cfg.sectionSeparator.right}"},
             disabled_filetypes = {},

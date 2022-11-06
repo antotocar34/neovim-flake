@@ -5,10 +5,14 @@
           enable = true;
           name = "nord";
           style="";
+          extraLuaConfig = ''
+            vim.g.nord_contrast = true
+            vim.g.nord_italic = false
+            vim.g.nord_bold = false
+          '';
         };
         statusline.lualine = {
           enable = true;
-          theme = "nord";
         };
         viAlias = false;
         vimAlias = true;
