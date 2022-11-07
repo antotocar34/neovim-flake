@@ -25,6 +25,7 @@ in {
         "<F4>" = "<cmd>FloatermHide<CR><cmd>FloatermNext<CR>";
         "<leader>]" = "<cmd>FloatermNew --wintype=vsplit --width=90<CR>";
         "<leader>[" = "<cmd>FloatermNew --wintype=split --height=15<CR>";
+        "+" = "<cmd>FloatermNew --wintype=float --width=220 --height=60<CR>";
       };
 
       vim.tnoremap = {
@@ -33,7 +34,15 @@ in {
         "¬" = "<cmd>FloatermToggle<CR>";
         "<leader>]" = "<cmd>FloatermNew --wintype=vsplit --width=90<CR>";
         "<leader>[" = "<cmd>FloatermNew --wintype=split --height=15<CR>";
+        "<C-w>h" = "<C-\\><C-N><C-w>h";
+        "<C-w>j" = "<C-\\><C-N><C-w>j";
+        "<C-w>k" = "<C-\\><C-N><C-w>k";
+        "<C-w>l" = "<C-\\><C-N><C-w>l";
+        "<C-q>" = "<C-\\><C-N><cmd>FloatermKill<CR>";
+        "<C-k>[" = "<C-\\><C-n><CR>";
       };
+
+      vim.globals.floaterm_title = "";
 
       vim.configRC = ''
         ${ writeIf (config.vim.theme.name == "nord") ''
@@ -41,19 +50,10 @@ in {
         hi FloatermBorder guifg='#81A1C1'
         ''
         }
+        " Sane defaults for terminal
         au TermOpen * setlocal nonumber norelativenumber
         au TermOpen * startinsert
         au TermEnter * echo "jobid: ". &channel
-        nnoremap + <cmd>FloatermNew --wintype=float --width=220 --height=60<CR>
-        tnoremap <C-q> <C-\><C-N><cmd>FloatermKill<CR>
-
-        tnoremap <C-w>h <C-\><C-N><C-w>h
-        tnoremap <C-w>j <C-\><C-N><C-w>j
-        tnoremap <C-w>k <C-\><C-N><C-w>k
-        tnoremap <C-w>l <C-\><C-N><C-w>l
-
-        " tunmap <tab>
-        tnoremap <C-k>[ <C-\><C-n><CR>
 
         " Auto insert into the terminal
         let g:previous_window = -1
