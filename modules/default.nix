@@ -23,5 +23,6 @@
     ./telescope
     ./vim-floaterm
     ./git
+    ./vimwiki
   ];
 }

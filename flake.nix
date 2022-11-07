@@ -91,6 +91,9 @@
     # Plenary (required by crates-nvim)
     plenary-nvim = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
 
+    # vimwiki
+    vimwiki = { url = "github:vimwiki/vimwiki"; flake = false; };
+
     hare-vim = { url = "git+https://git.sr.ht/~sircmpwn/hare.vim"; flake = false; };
 
     tree-sitter-hare = { url = "git+https://git.sr.ht/~ecmma/tree-sitter-hare"; flake = false; };
@@ -149,6 +152,7 @@
       "nord"
       "tokyonight"
       "vim-floaterm"
+      "vimwiki"
     ];
 
     pluginOverlay = lib.buildPluginOverlay;

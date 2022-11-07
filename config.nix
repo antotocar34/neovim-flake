@@ -92,6 +92,10 @@
         vim-floaterm = {
           enable = true;
         };
+        vimwiki = {
+          enable = true;
+          wikiPath = "~/Documents/Notes/vimwiki";
+        };
 
         ## Keybindings
         nnoremap."<C-q>"=":q<CR>";
