@@ -3,12 +3,14 @@
   config,
   lib,
   ...
-}: 
+}:
 with lib;
-with builtins;
-let
+with builtins; let
   cfg = config.vim.vim-floaterm;
-  writeIf = cond: message: if cond then message else "";
+  writeIf = cond: message:
+    if cond
+    then message
+    else "";
 in {
   options.vim.vim-floaterm = {
     enable = mkEnableOption "Add support for Toggle terminals";
@@ -45,10 +47,11 @@ in {
       vim.globals.floaterm_title = "";
 
       vim.configRC = ''
-        ${ writeIf (config.vim.theme.name == "nord") ''
-        au TermOpen * hi! NormalFloat guibg='#2E3440'
-        hi FloatermBorder guifg='#81A1C1'
-        ''
+        ${
+          writeIf (config.vim.theme.name == "nord") ''
+            au TermOpen * hi! NormalFloat guibg='#2E3440'
+            hi FloatermBorder guifg='#81A1C1'
+          ''
         }
         " Sane defaults for terminal
         au TermOpen * setlocal nonumber norelativenumber

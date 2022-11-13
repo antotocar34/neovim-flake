@@ -8,7 +8,7 @@ with lib;
 with builtins; let
   cfg = config.vim.statusline.lualine;
   current_theme = config.vim.theme.name;
-  supported_themes = import ./supported_lualine_themes.nix ;
+  supported_themes = import ./supported_lualine_themes.nix;
 in {
   options.vim.statusline.lualine = {
     enable = mkOption {

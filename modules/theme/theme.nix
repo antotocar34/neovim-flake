@@ -33,10 +33,8 @@ in {
 
   config =
     mkIf cfg.enable
-    (
-      {
-        vim.startPlugins = [pkgs.neovimPlugins.${cfg.name}];
-        vim.luaConfigRC = cfg.extraLuaConfig + supported_themes.${cfg.name}.setup {style=cfg.style;};
-      }
-    );
+    {
+      vim.startPlugins = [pkgs.neovimPlugins.${cfg.name}];
+      vim.luaConfigRC = cfg.extraLuaConfig + supported_themes.${cfg.name}.setup {style = cfg.style;};
+    };
 }

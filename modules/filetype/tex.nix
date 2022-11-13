@@ -3,12 +3,14 @@
   config,
   lib,
   ...
-}: 
+}:
 with builtins;
-with lib;
-let
+with lib; let
   cfg = config.vim.filetype.tex;
-  writeIf = cond: message: if cond then message else "";
+  writeIf = cond: message:
+    if cond
+    then message
+    else "";
 in {
   options.vim.filetype.tex = {
     enable = mkEnableOption "Enable tex support through vimtex";
@@ -21,10 +23,18 @@ in {
 
   config = mkIf cfg.enable {
     vim.startPlugins = with pkgs.neovimPlugins; [
-      (if cfg.enable then vimtex else null)
-      (if cfg.ultisnipsEnable then ultisnips else null)
+      (
+        if cfg.enable
+        then vimtex
+        else null
+      )
+      (
+        if cfg.ultisnipsEnable
+        then ultisnips
+        else null
+      )
     ];
-    vim.configRC = '' 
+    vim.configRC = ''
       let g:tex_flavor='latex'
       let g:vimtex_view_method='zathura'
       let g:vimtex_quickfix_mode=0
@@ -47,12 +57,12 @@ in {
           \   '-interaction=nonstopmode',
           \ ],
           \}
-    ''; 
+    '';
     vim.luaConfigRC = ''
       vim.g.UltiSnipsExpandTrigger = '<tab>'
       vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
       vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
       vim.g.UltiSnipsSnippetDirectories = {'${cfg.ultisnipsSnippetDirectory}'}
     '';
-    };
+  };
 }

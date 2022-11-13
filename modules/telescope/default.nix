@@ -56,16 +56,15 @@ in {
         "${cfg.subKey}${cfg.keyGitFindFiles}" = "<cmd> Telescope git_files<CR>";
         "${cfg.subKey}${cfg.keyGitLiveGrep}" = ''
           <cmd>lua require('telescope.builtin').live_grep{ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1] }<cr>
-          '';
+        '';
         "${cfg.subKey}${cfg.keyGitGrepString}" = ''
           <cmd>lua require('telescope.builtin').grep_string{ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1] }<cr>
-          '';
+        '';
         "${cfg.subKey}${cfg.keyLiveGrep}" = "<cmd> Telescope live_grep<CR>";
         "${cfg.subKey}${cfg.keyBuffers}" = "<cmd> Telescope buffers<CR>";
         "${cfg.subKey}${cfg.keyHelpTags}" = "<cmd> Telescope help_tags<CR>";
         "${cfg.subKey}${cfg.keyPickers}" = "<cmd> Telescope<CR>";
         "${cfg.subKey}${cfg.keyKeyMaps}" = "<cmd> Telescope keymaps<CR>";
-
 
         "${cfg.subKey}vcw" = "<cmd> Telescope git_commits<CR>";
         "${cfg.subKey}vcb" = "<cmd> Telescope git_bcommits<CR>";

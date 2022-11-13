@@ -65,13 +65,14 @@ in {
     maps;
   in
     builtins.attrValues (builtins.mapAttrs (key: action: {
-      action = action.action;
-      config = lib.filterAttrs (_: v: v) {
-        inherit (action) silent expr unique noremap script nowait;
-      };
-      key = key;
-      mode = mode;
-    }) normalized);
+        action = action.action;
+        config = lib.filterAttrs (_: v: v) {
+          inherit (action) silent expr unique noremap script nowait;
+        };
+        key = key;
+        mode = mode;
+      })
+      normalized);
 
   # Creates an option with a nullable type that defaults to null.
   mkNullOrOption = type: desc:
