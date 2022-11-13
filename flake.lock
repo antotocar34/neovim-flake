@@ -749,8 +749,10 @@
         "tokyonight": "tokyonight",
         "tree-sitter-hare": "tree-sitter-hare",
         "trouble": "trouble",
+        "ultisnips": "ultisnips",
         "vim-floaterm": "vim-floaterm",
         "vim-vsnip": "vim-vsnip",
+        "vimtex": "vimtex",
         "vimwiki": "vimwiki",
         "which-key": "which-key"
       }
@@ -925,6 +927,22 @@
         "type": "github"
       }
     },
+    "ultisnips": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664725673,
+        "narHash": "sha256-CVBorflQVEoSkZV4DkDBcFnC8Ny9BWitgekT3KGvpvo=",
+        "owner": "SirVer",
+        "repo": "ultisnips",
+        "rev": "e99fdf15cd55a4a8e0cb0a80a6810c1867a5c401",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SirVer",
+        "repo": "ultisnips",
+        "type": "github"
+      }
+    },
     "utils": {
       "locked": {
         "lastModified": 1656928814,
@@ -1001,6 +1019,22 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "vim-vsnip",
+        "type": "github"
+      }
+    },
+    "vimtex": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1667769173,
+        "narHash": "sha256-fIfTZyalcKf+t2VgEkDeooMM47BKcRgz9PVujBNgCns=",
+        "owner": "lervag",
+        "repo": "vimtex",
+        "rev": "f4da91c109684ee5aac09bd365d818c4636160c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lervag",
+        "repo": "vimtex",
         "type": "github"
       }
     },

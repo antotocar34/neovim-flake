@@ -174,8 +174,8 @@ in {
         },
             -- theme = "$ {cfg.theme}",
             theme = "${current_theme}",
-            component_separators = {"${cfg.componentSeparator.left}","${cfg.componentSeparator.right}"},
-            section_separators = {"${cfg.sectionSeparator.left}","${cfg.sectionSeparator.right}"},
+            -- component_separators = {"${cfg.componentSeparator.left}","${cfg.componentSeparator.right}"},
+            -- section_separators = {"${cfg.sectionSeparator.left}","${cfg.sectionSeparator.right}"},
             disabled_filetypes = {},
           },
           sections = {
@@ -186,15 +186,15 @@ in {
             lualine_y = ${cfg.activeSection.y},
             lualine_z = ${cfg.activeSection.z},
           },
-          inactive_sections = {
-            lualine_a = ${cfg.inactiveSection.a},
-            lualine_b = ${cfg.inactiveSection.b},
-            lualine_c = ${cfg.inactiveSection.c},
-            lualine_x = ${cfg.inactiveSection.x},
-            lualine_y = ${cfg.inactiveSection.y},
-            lualine_z = ${cfg.inactiveSection.z},
-          },
-          tabline = {},
+          -- inactive_sections = {
+          --   lualine_a = ${cfg.inactiveSection.a},
+          --   lualine_b = ${cfg.inactiveSection.b},
+          --   lualine_c = ${cfg.inactiveSection.c},
+          --   lualine_x = ${cfg.inactiveSection.x},
+          --   lualine_y = ${cfg.inactiveSection.y},
+          --   lualine_z = ${cfg.inactiveSection.z},
+          -- },
+          -- tabline = {},
           extensions = {${
           if config.vim.filetree.nvimTreeLua.enable
           then "\"nvim-tree\""

@@ -94,6 +94,10 @@
     # vimwiki
     vimwiki = { url = "github:vimwiki/vimwiki"; flake = false; };
 
+    # vimtex
+    vimtex = { url = "github:lervag/vimtex"; flake = false; };
+    ultisnips = { url = "github:SirVer/ultisnips" ; flake = false;};
+
     hare-vim = { url = "git+https://git.sr.ht/~sircmpwn/hare.vim"; flake = false; };
 
     tree-sitter-hare = { url = "git+https://git.sr.ht/~ecmma/tree-sitter-hare"; flake = false; };
@@ -153,6 +157,8 @@
       "tokyonight"
       "vim-floaterm"
       "vimwiki"
+      "vimtex"
+      "ultisnips"
     ];
 
     pluginOverlay = lib.buildPluginOverlay;

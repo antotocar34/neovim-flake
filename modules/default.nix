@@ -24,5 +24,6 @@
     ./vim-floaterm
     ./git
     ./vimwiki
+    ./filetype
   ];
 }

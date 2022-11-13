@@ -96,6 +96,13 @@
           enable = true;
           wikiPath = "~/Documents/Notes/vimwiki";
         };
+        filetype = {
+          tex = {
+            enable = true;
+            ultisnipsEnable = true;
+            ultisnipsSnippetDirectory = "/home/carneca/.config/nixpkgs/extraConfigs/.config/nvim/my-snippets/";
+          };
+        };
 
         ## Keybindings
         nnoremap."<C-q>"=":q<CR>";
