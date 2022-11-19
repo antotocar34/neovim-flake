@@ -97,9 +97,12 @@
   filetype = {
     tex = {
       enable = true;
-      ultisnipsEnable = true;
-      ultisnipsSnippetDirectory = "/home/carneca/.config/nixpkgs/extraConfigs/.config/nvim/my-snippets/";
     };
+  };
+
+  snippets.ultisnips = {
+    enable = true;
+    snippetDirectory = "/home/carneca/.config/nixpkgs/extraConfigs/.config/nvim/my-snippets/";
   };
 
   ## Keybindings

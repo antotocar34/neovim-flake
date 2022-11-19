@@ -14,26 +14,10 @@ with lib; let
 in {
   options.vim.filetype.tex = {
     enable = mkEnableOption "Enable tex support through vimtex";
-    ultisnipsEnable = mkEnableOption "Enable tex support through vimtex";
-    ultisnipsSnippetDirectory = mkOption {
-      type = types.str;
-      description = "Directory where .snippet files are to be found";
-    };
   };
 
   config = mkIf cfg.enable {
-    vim.startPlugins = with pkgs.neovimPlugins; [
-      (
-        if cfg.enable
-        then vimtex
-        else null
-      )
-      (
-        if cfg.ultisnipsEnable
-        then ultisnips
-        else null
-      )
-    ];
+    vim.startPlugins = with pkgs.neovimPlugins; [ vimtex ];
     vim.configRC = ''
       let g:tex_flavor='latex'
       let g:vimtex_view_method='zathura'
@@ -57,12 +41,6 @@ in {
           \   '-interaction=nonstopmode',
           \ ],
           \}
-    '';
-    vim.luaConfigRC = ''
-      vim.g.UltiSnipsExpandTrigger = '<tab>'
-      vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
-      vim.g.UltiSnipsSnippetDirectories = {'${cfg.ultisnipsSnippetDirectory}'}
     '';
   };
 }
