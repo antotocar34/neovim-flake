@@ -99,6 +99,7 @@
       enable = true;
     };
   };
+  leap.enable = true;
 
   snippets.ultisnips = {
     enable = true;

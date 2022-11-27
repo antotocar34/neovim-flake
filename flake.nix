@@ -1,5 +1,5 @@
 {
-  description = "Jordan's Neovim Configuration";
+  description = "Antoine's Neovim Configuration";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
@@ -124,7 +124,10 @@
       url = "github:ray-x/cmp-treesitter";
       flake = false;
     };
-
+    leap = {
+      url = "github:ggandor/leap.nvim";
+      flake = false;
+    };
     # snippets
     vim-vsnip = {
       url = "github:hrsh7th/vim-vsnip";
@@ -305,6 +308,7 @@
       "vimwiki"
       "vimtex"
       "ultisnips"
+      "leap"
     ];
 
     pluginOverlay = lib.buildPluginOverlay;
