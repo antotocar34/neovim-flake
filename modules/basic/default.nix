@@ -151,6 +151,7 @@ in {
       vim.splitRight = mkDefault true;
       vim.noShowMode = mkDefault true;
       vim.title = mkDefault true;
+      vim.noHlsearch = mkDefault false;
 
       vim.startPlugins = with pkgs.neovimPlugins; [plenary-nvim];
 

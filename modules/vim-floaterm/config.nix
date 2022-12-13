@@ -34,8 +34,8 @@ in {
         "<F3>" = "<cmd>FloatermHide<CR><cmd>FloatermPrev<CR>";
         "<F4>" = "<cmd>FloatermHide<CR><cmd>FloatermNext<CR>";
         "¬" = "<cmd>FloatermToggle<CR>";
-        "<leader>]" = "<cmd>FloatermNew --wintype=vsplit --width=90<CR>";
-        "<leader>[" = "<cmd>FloatermNew --wintype=split --height=15<CR>";
+        # "<leader>]" = "<cmd>FloatermNew --wintype=vsplit --width=90<CR>";
+        # "<leader>[" = "<cmd>FloatermNew --wintype=split --height=15<CR>";
         "<C-w>h" = "<C-\\><C-N><C-w>h";
         "<C-w>j" = "<C-\\><C-N><C-w>j";
         "<C-w>k" = "<C-\\><C-N><C-w>k";
