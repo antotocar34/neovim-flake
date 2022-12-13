@@ -47,8 +47,9 @@ in {
       vim.globals.floaterm_title = "";
 
       vim.configRC = ''
-        ${
-          writeIf (config.vim.theme.name == "nord") ''
+      ${
+          writeIf (config.vim.theme.name == "nord") 
+          ''
             au TermOpen * hi! NormalFloat guibg='#2E3440'
             hi FloatermBorder guifg='#81A1C1'
           ''
@@ -56,6 +57,7 @@ in {
         " Sane defaults for terminal
         au TermOpen * setlocal nonumber norelativenumber
         au TermOpen * startinsert
+        au TermOpen * lua vim.wo.signcolumn="no"
         au TermEnter * echo "jobid: ". &channel
 
         " Auto insert into the terminal

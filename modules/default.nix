@@ -25,5 +25,7 @@
     ./git
     ./vimwiki
     ./filetype
+    ./motion
+    ./repl
   ];
 }

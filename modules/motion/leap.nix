@@ -16,7 +16,7 @@ in {
   config = mkIf cfg.enable {
       vim.startPlugins = with pkgs.neovimPlugins; [ leap ];
 
-      vim.luaConfigRC = writeIf cfg.enable ''
+      vim.luaConfigRC = ''
         require('leap').add_default_mappings()
       '';
   };

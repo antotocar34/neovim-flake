@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ./tex.nix
-    ./nix.nix
+    ./vim-slime.nix
   ];
 }

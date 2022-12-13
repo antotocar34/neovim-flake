@@ -11,5 +11,6 @@
     ./trouble.nix
     ./lsp-signature.nix
     ./lightbulb.nix
+    ./toggle_lsp_diagnostics.nix
   ];
 }

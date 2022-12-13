@@ -116,6 +116,10 @@ in {
       type = types.bool;
       description = "Names the window with a more descriptive title";
     };
+    noHlsearch = mkOption {
+      type = types.bool;
+      description = "Whether to keep search result highlighted";
+    };
   };
 
   config = (
@@ -251,6 +255,9 @@ in {
         ''}
         ${writeIf cfg.title ''
           set title
+        ''}
+        ${writeIf cfg.noHlsearch ''
+          set nohlsearch
         ''}
       '';
     }

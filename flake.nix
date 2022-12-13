@@ -45,6 +45,10 @@
       url = "github:ray-x/lsp_signature.nvim";
       flake = false;
     };
+    toggle-lsp-diagnostics = {
+      url = "github:WhoIsSethDaniel/toggle-lsp-diagnostics.nvim";
+      flake = false;
+    };
     null-ls = {
       url = "github:jose-elias-alvarez/null-ls.nvim";
       flake = false;
@@ -70,6 +74,10 @@
 
     # Telescope
     telescope = {
+      url = "github:nvim-telescope/telescope.nvim";
+      flake = false;
+    };
+    telescope-manix = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
     };
@@ -228,6 +236,10 @@
       flake = false;
     };
 
+    vim-slime = {
+      url = "github:jpalardy/vim-slime";
+      flake = false;
+    };
     # vimtex
     vimtex = {
       url = "github:lervag/vimtex";
@@ -237,7 +249,10 @@
       url = "github:SirVer/ultisnips";
       flake = false;
     };
-
+    vim-nix = {
+      url = "github:LnL7/vim-nix";
+      flake = false;
+    };
     hare-vim = {
       url = "git+https://git.sr.ht/~sircmpwn/hare.vim";
       flake = false;
@@ -299,6 +314,7 @@
       "sqls-nvim"
       "glow-nvim"
       "telescope"
+      "telescope-manix"
       "rust-tools"
       "onedark"
       "hare-vim"
@@ -307,8 +323,11 @@
       "vim-floaterm"
       "vimwiki"
       "vimtex"
+      "vim-nix"
+      "vim-slime"
       "ultisnips"
       "leap"
+      "toggle-lsp-diagnostics"
     ];
 
     pluginOverlay = lib.buildPluginOverlay;
@@ -367,14 +386,14 @@
 
     overlays.default = final: prev: {
       inherit neovimBuilder;
-      neovimJD = packages.${system}.neovimJD;
+      neovimAC = packages.${system}.neovimAC;
       neovimTidal = packages.${system}.neovimTidal;
       neovimPlugins = pkgs.neovimPlugins;
     };
 
     packages.${system} = rec {
-      default = neovimJD;
-      neovimJD = neovimBuilder (configBuilder true);
+      default = neovimAC;
+      neovimAC = neovimBuilder (configBuilder true);
       neovimTidal = neovimBuilder tidalConfig;
     };
   };

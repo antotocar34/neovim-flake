@@ -14,14 +14,18 @@
   };
   viAlias = false;
   vimAlias = true;
+  noHlsearch = true;
+
   lsp = {
     enable = true;
-    formatOnSave = true;
+    formatOnSave = false;
     lightbulb.enable = true;
     lspsaga.enable = false;
     nvimCodeActionMenu.enable = true;
     trouble.enable = true;
-    lspSignature.enable = true;
+    lspSignature.enable = false;
+    toggle-diagnostics.enable = true;
+    toggle-diagnostics.start_on = false;
     nix = true;
     python = true;
     clang.enable = false;
@@ -31,6 +35,7 @@
     go = false;
     hare = false;
   };
+
   visuals = {
     enable = true;
     nvimWebDevicons.enable = true;
@@ -46,26 +51,32 @@
       lineTimeout = 0;
     };
   };
+
   autopairs.enable = true;
   autocomplete = {
     enable = true;
     type = "nvim-cmp";
   };
+
   filetree.nvimTreeLua = {
     enable = true;
     closeOnFileOpen = true;
     openOnSetup = false;
     keyToggle = "-";
   };
+
   tabline.nvimBufferline.enable = false;
+
   treesitter = {
-    enable = true;
+    enable = false;
     context.enable = true;
   };
+
   keys = {
     enable = true;
     whichKey.enable = true;
   };
+
   telescope = {
     enable = true;
     subKey = "<leader>j";
@@ -78,27 +89,40 @@
     keyHelpTags = "h";
     keyPickers = "t";
     keyKeyMaps = "k";
+    plugins = {
+      # TODO fix
+      telescope-manix.enable = false;
+    };
   };
+
   markdown = {
     enable = true;
     glow.enable = true;
   };
+
   git = {
     enable = true;
     gitsigns.enable = true;
   };
+
   vim-floaterm = {
     enable = true;
   };
+
   vimwiki = {
     enable = true;
     wikiPath = "~/Documents/Notes/vimwiki";
   };
+
   filetype = {
-    tex = {
-      enable = true;
-    };
+    tex.enable = true;
+    nix.enable = true;
   };
+
+  repl = {
+    vim-slime.enable = true;
+  };
+
   leap.enable = true;
 
   snippets.ultisnips = {

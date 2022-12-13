@@ -7,6 +7,7 @@
 with lib;
 with builtins; let
   cfg = config.vim.telescope;
+  writeIf = cond: message: if cond then message else "";
 in {
   options.vim.telescope = {
     enable = mkEnableOption "enable telescope";
@@ -43,12 +44,17 @@ in {
     keyKeyMaps = mkOption {
       type = types.str;
     };
+    plugins = {
+      telescope-manix.enable = mkEnableOption "enable telescope-manix";
+    };
   };
 
   config = mkIf (cfg.enable) {
     vim.startPlugins = with pkgs.neovimPlugins; [
       telescope
-    ];
+    ] ++
+    [ (mkIf cfg.plugins.telescope-manix.enable telescope-manix) ]
+    ;
 
     vim.nnoremap =
       {
@@ -95,7 +101,8 @@ in {
       );
 
     vim.luaConfigRC = ''
-      require("telescope").setup {
+      local telescope = require("telescope")
+      telescope.setup {
         defaults = {
           vimgrep_arguments = {
             "${pkgs.ripgrep}/bin/rg",
@@ -113,6 +120,10 @@ in {
           },
         }
       }
-    '';
+      ${ 
+       writeIf cfg.plugins.telescope-manix.enable 
+       "telescope.load_extension('manix')" 
+       }
+      '';
   };
 }
