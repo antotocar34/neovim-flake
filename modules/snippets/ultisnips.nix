@@ -18,18 +18,22 @@ in
       type = l.types.str;
     };
 
+    expandTrigger = lib.mkOption {
+        type = l.types.str ;
+        default = "<tab>";
+        description = "Key to expand snippet";
+    };
+
   };
 
   config = l.mkIf cfg.enable {
     vim.startPlugins = with pkgs.neovimPlugins; [ultisnips];
 
     vim.luaConfigRC = ''
-      vim.g.UltiSnipsExpandTrigger = '<tab>'
-      vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
+      vim.g.UltiSnipsExpandTrigger = '${cfg.expandTrigger}'
+      -- vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
+      -- vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
       vim.g.UltiSnipsSnippetDirectories = {'${cfg.snippetDirectory}'}
     '';
-
   };
 }
-

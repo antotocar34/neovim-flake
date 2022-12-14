@@ -15,11 +15,12 @@
   viAlias = false;
   vimAlias = true;
   noHlsearch = true;
+  tabWidth = 2;
 
   lsp = {
     enable = true;
     formatOnSave = false;
-    lightbulb.enable = true;
+    lightbulb.enable = false;
     lspsaga.enable = false;
     nvimCodeActionMenu.enable = true;
     trouble.enable = true;
@@ -127,7 +128,8 @@
 
   snippets.ultisnips = {
     enable = true;
-    snippetDirectory = "/home/carneca/.config/nixpkgs/extraConfigs/.config/nvim/my-snippets/";
+    snippetDirectory = "/home/carneca/.config/nixpkgs/homedir/.config/nvim/my-snippets";
+    expandTrigger = "<C-;>";
   };
 
   ## Keybindings
