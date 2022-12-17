@@ -146,8 +146,8 @@
   nnoremap."<leader>o" = "<cmd>set invspell<CR>";
 
   # Buffer remaps
-  nnoremap."<leader>l" = ":bn<CR>";
-  nnoremap."<leader>h" = ":bp<CR>";
+  nnoremap."<C-l>" = ":bn<CR>";
+  nnoremap."<C-h>" = ":bp<CR>";
   nnoremap."<leader>q" = ":bd<CR>";
 
   imap."<C-e>" = "<C-o>zz";
