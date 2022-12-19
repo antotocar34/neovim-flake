@@ -7,5 +7,6 @@
   imports = [
     ./theme.nix
     ./config.nix
+    ./supportedThemes.nix
   ];
 }
