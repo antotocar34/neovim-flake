@@ -55,7 +55,7 @@
 
   autopairs.enable = true;
   autocomplete = {
-    enable = true;
+    enable = false;
     type = "nvim-cmp";
   };
 
@@ -127,7 +127,7 @@
   leap.enable = true;
 
   snippets.ultisnips = {
-    enable = true;
+    enable = false; # Massive input lag TODO fix this or switch to luasnip
     snippetDirectory = "/home/carneca/.config/nixpkgs/homedir/.config/nvim/my-snippets";
     expandTrigger = "<C-;>";
   };
