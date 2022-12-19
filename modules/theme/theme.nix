@@ -21,8 +21,9 @@ in {
     };
 
     style = mkOption {
-      type = with types; enum cfg.supportedThemes.${cfg.name}.styles;
+      type = with types; nullOr (enum cfg.supportedThemes.${cfg.name}.styles);
       description = "Specific style for theme if it supports it";
+      default = null; 
     };
 
     extraConfig = mkOption {
@@ -34,6 +35,6 @@ in {
   config = mkIf cfg.enable {
     vim.startPlugins = [cfg.name];
     vim.luaConfigRC.themeSetup = nvim.dag.entryBefore ["theme"] cfg.extraConfig;
-    vim.luaConfigRC.theme = cfg.supportedThemes.${cfg.name}.setup {style = cfg.style;};
+    vim.luaConfigRC.theme = cfg.supportedThemes.${cfg.name}.setup;
   };
 }
