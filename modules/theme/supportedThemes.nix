@@ -7,14 +7,15 @@
 let
   l = lib // builtins;
   t = l.types;
+  writeIf = cond: text: if cond then text else "";
   themeSubmodule.options = {
     setup = l.mkOption {
-      type = t.functionTo t.str;
+      type = t.str;
       description = "Lua code to initialize theme";
     };
     styles = l.mkOption {
-      type = t.listOf t.str;
-      default = [];
+      type = t.nullOr (t.listOf t.str);
+      default = null;
     };
   };
 in
@@ -26,32 +27,49 @@ in
     };
   };
 
-  config.vim.theme.supportedThemes = {
-    onedark = {
-      setup = { style ? "dark" }: ''
+  config.vim.theme.supportedThemes = 
+  let
+    cfg = config.vim.theme;
+    style = cfg.style;
+  in
+  {
+    onedark = 
+    let
+      defaultStyle = "dark";
+    in
+    {
+      setup = ''
         -- OneDark theme
         require('onedark').setup {
-        style = "${style}"
+        style = "${if (l.isNull style) then defaultStyle else style}"
         }
         require('onedark').load()
       '';
       styles = [ "dark" "darker" "cool" "deep" "warm" "warmer" ];
     };
 
-    tokyonight = {
-      setup = { style ? "night" }: ''
+    tokyonight = 
+    let
+      defaultStyle = "night";
+    in
+    {
+      setup = ''
         -- need to set style before colorscheme to apply
-        vim.g.tokyonight_style = '${style}'
+        vim.g.tokyonight_style = '${if (l.isNull style) then defaultStyle else style}'
         vim.cmd[[colorscheme tokyonight]]
       '';
       styles = [ "day" "night" "storm" ];
     };
 
-    catppuccin = {
-      setup = { style ? "mocha" }: ''
+    catppuccin = 
+    let
+      defaultStyle = "mocha";
+    in
+      {
+      setup = ''
         -- Catppuccin theme
         require('catppuccin').setup {
-        flavour = "${style}"
+        flavour = "${if (l.isNull style) then defaultStyle else style}"
         }
         -- setup must be called before loading
         vim.cmd.colorscheme "catppuccin"
