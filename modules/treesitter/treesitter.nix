@@ -27,6 +27,8 @@ in {
       description = "enable autoclose and rename html tag [nvim-ts-autotag]";
     };
 
+    highlight.enable = mkEnableOption "Enable treesitter highlighting";
+
     grammars = mkOption {
       type = with types; listOf package;
       default = with (pkgs.tree-sitter-grammars); [
@@ -82,7 +84,7 @@ in {
         -- Treesitter config
         require'nvim-treesitter.configs'.setup {
           highlight = {
-            enable = true,
+            enable = ${boolToString cfg.highlight.enable},
             disable = {},
           },
 
